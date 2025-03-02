@@ -335,93 +335,82 @@
       //   activity message section
 
       document.addEventListener("DOMContentLoaded", function () {
-        const completedButtons = document.querySelectorAll(".completed-btn");
-        const taskAssignedCount = document.getElementById(
-          "task-assigned-count"
-        );
-        const navbarCount = document.getElementById("navbar-task-count");
-        const activityLog = document.getElementById("activity-log");
-        const clearHistoryBtn = document.getElementById("clear-history");
-        const noActivityMsg = document.getElementById("empty-log");
+  const completedButtons = document.querySelectorAll(".completed-btn");
+  const taskAssignedCount = document.getElementById("task-assigned-count");
+  const navbarCount = document.getElementById("navbar-task-count");
+  const activityLog = document.getElementById("activity-log");
+  const clearHistoryBtn = document.getElementById("clear-history");
+  const noActivityMsg = document.getElementById("empty-log");
 
-        const taskNames = [
-          "Fix Mobile Button Issue",
-          "Add Dark Mode",
-          "Optimize Home Page",
-          "Improve UI Components",
-          "Integrate OpenAI API",
-          "Improve Job Searching",
-        ];
+  const taskNames = [
+    "Fix Mobile Button Issue",
+    "Add Dark Mode",
+    "Optimize Home Page",
+    "Improve UI Components",
+    "Integrate OpenAI API",
+    "Improve Job Searching",
+  ];
 
-        function updateActivityMessage() {
-          if (activityLog.children.length === 0) {
-            noActivityMsg.style.display = "block";
-          } else {
-            noActivityMsg.style.display = "none";
-          }
+  function updateActivityMessage() {
+    noActivityMsg.style.display = activityLog.children.length === 0 ? "block" : "none";
+  }
+
+  completedButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+      if (!button.disabled) {
+        alert(`Board updated successfully for: ${taskNames[index]}`);
+
+        if (index === 5) {
+          setTimeout(function () {
+            alert("New Update on activity log!");
+            completeTask(button, index);
+          }, 100);
+        } else {
+          completeTask(button, index);
         }
+      }
+    });
+  });
 
-        completedButtons.forEach(function (button, index) {
-          button.addEventListener("click", function () {
-            if (!button.disabled) {
-              alert(`Board updated successfully for: ${taskNames[index]}`);
+  function completeTask(button, index) {
+    button.disabled = true;
+    button.classList.remove("bg-blue-600", "hover:bg-blue-700");
+    button.classList.add("bg-gray-400", "cursor-not-allowed");
+    button.textContent = "Completed";
 
-              if (index === 5) {
-                setTimeout(function () {
-                  alert("New Update on activity log!");
-                  completeTask(button, index);
-                }, 100);
-              } else {
-                completeTask(button, index);
-              }
-            }
-          });
-        });
+    // Task Count
+    let taskCount = parseInt(taskAssignedCount.textContent);
+    if (taskCount > 0) {
+      taskAssignedCount.textContent = taskCount - 1;
+    }
 
-        function completeTask(button, index) {
-          button.disabled = true;
-          button.classList.remove("bg-blue-600", "hover:bg-blue-700");
-          button.classList.add("bg-gray-400", "cursor-not-allowed");
-          button.textContent = "Completed";
+    // Navbar Count
+    let navbarTaskCount = parseInt(navbarCount.textContent);
+    navbarCount.textContent = navbarTaskCount + 1;
 
-          // Task Count
-          let taskCount = parseInt(taskAssignedCount.textContent);
-          if (taskCount > 0) {
-            taskAssignedCount.textContent = taskCount - 1;
-          }
+    
+    const now = new Date();
+    const timeOnly = now.toLocaleTimeString();
 
-          // Navbar Count
-          let navbarTaskCount = parseInt(navbarCount.textContent);
-          navbarCount.textContent = navbarTaskCount + 1;
+    // Add Activity Log Entry
+    const logEntry = document.createElement("p");
+    logEntry.textContent = `You have completed the task ${taskNames[index]} at ${timeOnly}`;
+    logEntry.classList.add("text-gray-700", "text-sm", "mt-2", "border-b", "border-dashed", "pb-1");
 
-          // Add Activity Log Entry
-          const now = new Date();
-          const logEntry = document.createElement("p");
-          logEntry.textContent = `You have completed the task "${
-            taskNames[index]
-          }" at ${now.toLocaleString()}`;
-          logEntry.classList.add(
-            "text-gray-700",
-            "text-sm",
-            "mt-2",
-            "border-b",
-            "border-dashed",
-            "pb-1"
-          );
+    activityLog.appendChild(logEntry);
 
-          activityLog.appendChild(logEntry);
+    updateActivityMessage();
+  }
 
-          updateActivityMessage();
-        }
+  // Clear History Button
+  clearHistoryBtn.addEventListener("click", () => {
+    activityLog.innerHTML = "";
+    updateActivityMessage();
+  });
 
-        // Clear History Button
-        clearHistoryBtn.addEventListener("click", () => {
-          activityLog.innerHTML = "";
-          updateActivityMessage();
-        });
+  updateActivityMessage();
+});
 
-        updateActivityMessage();
-      });
     </script>
   </body>
 </html>
