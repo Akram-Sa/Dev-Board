@@ -6,7 +6,7 @@
     <title>DevBoard</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-blue-50 px-40 py-10">
+  <body class="bg-blue-50 px-40 py-10" id="body">
     <!-- Navbar -->
     <nav
       class="flex justify-between items-center bg-white p-4 w-full rounded-lg"
@@ -14,7 +14,7 @@
       <div class="flex items-center gap-2">
         <img src="assests/logo.png" alt="DevBoard Logo" class="w-10 h-10" />
         <h1 class="text-2xl">
-          Dev<span class="text-black font-bold">Board</span>
+          <span class="text-black font-bold">Board</span>
         </h1>
       </div>
 
@@ -33,7 +33,7 @@
           <span class="text-black text-xl font-bold">23</span>
         </div>
         <div
-          class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full"
+           id="theme-button" class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full cursor-pointer"
         >
           <img
             src="assests/theme-btn.png"
@@ -262,5 +262,26 @@
     </div>
     
     </div>
+
+    <script>
+        const body = document.getElementById("body");
+        const themeButton = document.getElementById("theme-button");
+      
+        const colors = ["#BFDBFE", "#FDE68A", "#A7F3D0", "#FBCFE8", "#8E44AD"];
+        let colorPart = 0;
+        const originalColor = "bg-blue-50"; 
+      
+        themeButton.addEventListener("click", () => {
+          if (colorPart < colors.length) {
+            body.style.backgroundColor = colors[colorPart++];
+            body.classList.remove(originalColor);
+          } else {
+            body.style.backgroundColor = ""; //inline color reset hobe
+            body.classList.add(originalColor); //main ta abr add hobe
+            colorPart = 0; // again restart
+          }
+        });
+      </script>
+    
   </body>
 </html>
