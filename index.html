@@ -30,10 +30,13 @@
             />
           </div>
           <!-- Number -->
-          <span class="text-black text-xl font-bold">23</span>
+          <span class="text-black text-xl font-bold" id="navbar-task-count"
+            >23</span
+          >
         </div>
         <div
-           id="theme-button" class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full cursor-pointer"
+          id="theme-button"
+          class="w-12 h-12 flex items-center justify-center bg-blue-50 rounded-full cursor-pointer"
         >
           <img
             src="assests/theme-btn.png"
@@ -68,7 +71,12 @@
 
             <div class="text-left ml-4">
               <p class="text-gray-500 text-sm font-medium">Task Assigned</p>
-              <p class="text-2xl font-extrabold text-gray-900">05</p>
+              <p
+                id="task-assigned-count"
+                class="text-2xl font-extrabold text-gray-900"
+              >
+                06
+              </p>
             </div>
           </div>
 
@@ -98,8 +106,8 @@
             </div>
 
             <div class="text-left">
-              <p class="text-gray-700 text-lg font-medium">Wed,</p>
-              <p class="text-[#003440] font-bold text-2xl">Jul 28 2025</p>
+              <p class="text-gray-700 text-lg font-medium" id="current-day"></p>
+              <p class="text-[#003440] font-bold text-2x" id="current-date"></p>
             </div>
           </div>
         </div>
@@ -120,10 +128,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500"
                 >Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >2 March 2025</strong
                 ></span
               >
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -142,10 +152,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500"
                 >Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >12 March 2025</strong
                 ></span
               >
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -164,10 +176,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500"
                 >Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >22 March 2025</strong
                 ></span
               >
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -186,10 +200,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500"
                 >Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >25 March 2025</strong
                 ></span
               >
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -208,10 +224,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500"
                 >Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >26 March 2025</strong
                 ></span
               >
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -230,10 +248,12 @@
             <div class="mt-2 flex justify-between items-center">
               <span class="text-xs font-medium text-gray-500">
                 Deadline: <br /><strong class="text-black !important"
-                  >21 March 2025</strong
+                  >28 March 2025</strong
                 >
               </span>
-              <button class="bg-blue-600 text-white text-sm px-3 py-1 rounded">
+              <button
+                class="bg-blue-600 text-white text-sm px-3 py-1 rounded completed-btn"
+              >
                 Completed
               </button>
             </div>
@@ -246,42 +266,162 @@
       <div class="w-1/4 bg-white p-4 rounded-lg">
         <!-- Icon -->
         <div class="flex justify-center items-center gap-2">
-            <img src="assests/activity.png" alt="activity">
-            <h2 class="text-gray-900 font-semibold">Activity Log</h2>
+          <img src="assests/activity.png" alt="activity" />
+          <h2 class="text-gray-900 font-semibold">Activity Log</h2>
         </div>
-    
+
         <!-- Clear Button -->
-         <div class="flex justify-center">
-            <button class="mt-2 bg-blue-600 text-white px-3 py-1 rounded">
-                Clear History
-            </button>
-         </div>
-    
+        <div class="flex justify-center">
+          <button
+            id="clear-history"
+            class="mt-2 bg-blue-600 text-white px-3 py-1 rounded"
+          >
+            Clear History
+          </button>
+        </div>
+
         <!-- line -->
         <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
-    </div>
-    
+
+        <div id="activity-log">
+          <p class="text-gray-500 text-sm text-center" id="empty-log">
+            No recent activity
+          </p>
+        </div>
+      </div>
     </div>
 
+    <!-- js part start -->
+
     <script>
-        const body = document.getElementById("body");
-        const themeButton = document.getElementById("theme-button");
-      
-        const colors = ["#BFDBFE", "#FDE68A", "#A7F3D0", "#FBCFE8", "#8E44AD"];
-        let colorPart = 0;
-        const originalColor = "bg-blue-50"; 
-      
-        themeButton.addEventListener("click", () => {
-          if (colorPart < colors.length) {
-            body.style.backgroundColor = colors[colorPart++];
-            body.classList.remove(originalColor);
+      const body = document.getElementById("body");
+      const themeButton = document.getElementById("theme-button");
+
+      const colors = ["#BFDBFE", "#FDE68A", "#A7F3D0", "#FBCFE8", "#8E44AD"];
+      let colorPart = 0;
+      const originalColor = "bg-blue-50";
+
+      themeButton.addEventListener("click", () => {
+        if (colorPart < colors.length) {
+          body.style.backgroundColor = colors[colorPart++];
+          body.classList.remove(originalColor);
+        } else {
+          body.style.backgroundColor = ""; //inline color reset hobe
+          body.classList.add(originalColor); //main ta abr add hobe
+          colorPart = 0; // again restart
+        }
+      });
+
+      function setCurrentDate() {
+        const dateElement = document.getElementById("current-date");
+        const dayElement = document.getElementById("current-day");
+
+        const now = new Date();
+        const options = {
+          weekday: "short",
+          month: "short",
+          day: "2-digit",
+          year: "numeric",
+        };
+        const formattedDate = now.toLocaleDateString("en-US", options);
+
+        const [weekday, month, day, year] = formattedDate.split(" ");
+        dayElement.textContent = `${weekday}`;
+        dateElement.textContent = `${month} ${day} ${year}`;
+      }
+
+      setCurrentDate();
+
+      //   activity message section
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const completedButtons = document.querySelectorAll(".completed-btn");
+        const taskAssignedCount = document.getElementById(
+          "task-assigned-count"
+        );
+        const navbarCount = document.getElementById("navbar-task-count");
+        const activityLog = document.getElementById("activity-log");
+        const clearHistoryBtn = document.getElementById("clear-history");
+        const noActivityMsg = document.getElementById("empty-log");
+
+        const taskNames = [
+          "Fix Mobile Button Issue",
+          "Add Dark Mode",
+          "Optimize Home Page",
+          "Improve UI Components",
+          "Integrate OpenAI API",
+          "Improve Job Searching",
+        ];
+
+        function updateActivityMessage() {
+          if (activityLog.children.length === 0) {
+            noActivityMsg.style.display = "block";
           } else {
-            body.style.backgroundColor = ""; //inline color reset hobe
-            body.classList.add(originalColor); //main ta abr add hobe
-            colorPart = 0; // again restart
+            noActivityMsg.style.display = "none";
           }
-        });
-      </script>
-    
+        }
+
+        completedButtons.forEach(function (button, index) {
+          button.addEventListener("click", function () {
+            if (!button.disabled) {
+              alert(`Board updated successfully for: ${taskNames[index]}`);
+
+              if (index === 5) {
+                setTimeout(function () {
+                  alert("New Update on activity log!");
+                  completeTask(button, index);
+                }, 100);
+              } else {
+                completeTask(button, index);
+              }
+            }
+          });
+        });
+
+        function completeTask(button, index) {
+          button.disabled = true;
+          button.classList.remove("bg-blue-600", "hover:bg-blue-700");
+          button.classList.add("bg-gray-400", "cursor-not-allowed");
+          button.textContent = "Completed";
+
+          // Task Count
+          let taskCount = parseInt(taskAssignedCount.textContent);
+          if (taskCount > 0) {
+            taskAssignedCount.textContent = taskCount - 1;
+          }
+
+          // Navbar Count
+          let navbarTaskCount = parseInt(navbarCount.textContent);
+          navbarCount.textContent = navbarTaskCount + 1;
+
+          // Add Activity Log Entry
+          const now = new Date();
+          const logEntry = document.createElement("p");
+          logEntry.textContent = `You have completed the task "${
+            taskNames[index]
+          }" at ${now.toLocaleString()}`;
+          logEntry.classList.add(
+            "text-gray-700",
+            "text-sm",
+            "mt-2",
+            "border-b",
+            "border-dashed",
+            "pb-1"
+          );
+
+          activityLog.appendChild(logEntry);
+
+          updateActivityMessage();
+        }
+
+        // Clear History Button
+        clearHistoryBtn.addEventListener("click", () => {
+          activityLog.innerHTML = "";
+          updateActivityMessage();
+        });
+
+        updateActivityMessage();
+      });
+    </script>
   </body>
 </html>
