@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <!-- Header Section -->
+    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img src="assests/logo.png" alt="DevBoard Logo" class="w-10 h-10" />
+        <h1 class="text-2xl">
+          <span class="text-gray-700">Dev</span
+          ><span class="font-bold text-gray-900">Board</span>
+        </h1>
+      </div>
+        <div>
+          <a  href="index.html" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md text-lg">Back to Desk</a>
+        </div>
+    </div>
+
+    <!-- Blog Section -->
+    <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-lg mt-8 p-8">
+        <h2 class="text-center text-xl font-bold mb-4 text-gray-800">Blogs</h2>
+
+        <!-- Questions Container -->
+        <div class="space-y-6">
+            <!-- Question 1 -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+                <h3 class="text-xl font-semibold text-gray-900">Question-1: What are the different ways to select an element in the
+                  DOM?</h3>
+                  <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
+                <p class="text-gray-600 mt-2 text-lg leading-relaxed">
+                  Document Object Model (DOM) provides several methods to select and manipulate elements on a web page. Selecting elements is a fundamental step in dynamically updating content, handling events, and modifying styles.
+                </p>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+                <h3 class="text-xl font-semibold text-gray-900">Question-2: What is the difference between innerHTML, innerText, and textContent?</h3>
+                <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
+                <p class="text-gray-600 mt-2 text-lg leading-relaxed">
+                  innerHTML retrieves or sets an element's content, including HTML tags, while innerText retrieves only the visible text, ignoring hidden elements. textContent provides all text content, including hidden elements, without processing HTML tags, making it faster and more reliable.
+                </p>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+                <h3 class="text-xl font-semibold text-gray-900">Question-3: What is event delegation in the DOM?</h3>
+                <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
+                <p class="text-gray-600 mt-2 text-lg leading-relaxed">
+                  Event delegation is a technique in the DOM where a single parent element handles events for multiple child elements instead of assigning event listeners to each child individually. This is possible because events in JavaScript bubble up from the target element to its ancestors. 
+                </p>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+                <h3 class="text-xl font-semibold text-gray-900">Question-4: What is event bubbling in the DOM?</h3>
+                <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
+                <p class="text-gray-600 mt-2 text-lg leading-relaxed">
+                  Event bubbling is a phase in the event propagation process where an event starts from the target element and moves upward through its parent elements in the DOM hierarchy. 
+                </p>
+            </div>
+            <!-- Question-5 -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border">
+              <h3 class="text-xl font-semibold text-gray-900">Question-5: How do you create, add, and remove elements using JavaScript?</h3>
+              <div class="border-t-2 border-dashed border-gray-300 my-3"></div>
+              <p class="text-gray-600 mt-2 text-lg leading-relaxed">
+                To create an element in JavaScript, use document.createElement("tagName"), customize it with attributes or text, and add it using appendChild(), append(), prepend(), or insertBefore(). To remove an element, use parent.removeChild(childElement) or element.remove() to delete it directly from the DOM.
+              </p>
+          </div>
+        </div>
+    </div>
+
+</body>
+</html>

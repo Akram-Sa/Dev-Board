@@ -14,7 +14,8 @@
       <div class="flex items-center gap-2">
         <img src="assests/logo.png" alt="DevBoard Logo" class="w-10 h-10" />
         <h1 class="text-2xl">
-            <span class="text-gray-700">Dev</span><span class="font-bold text-gray-900">Board</span>
+          <span class="text-gray-700">Dev</span
+          ><span class="font-bold text-gray-900">Board</span>
         </h1>
       </div>
 
@@ -81,15 +82,28 @@
           </div>
 
           <!-- Discover Something New -->
-          <div
-            class="flex items-center gap-3 bg-gradient-to-r from-[#4B6FFF] to-[#8A9EFF] px-32 py-4 rounded-lg shadow-md"
+          <!-- <div
+           id="discover-section" class="flex items-center gap-3 bg-gradient-to-r from-[#4B6FFF] to-[#8A9EFF] px-32 py-4 rounded-lg shadow-md cursor-pointer"
           >
             <img src="assests/board.png" alt="Board Icon" class="w-14" />
             <span class="font-semibold text-lg text-white"
               >Discover Something <br />
               New Today!</span
             >
-          </div>
+          </div> -->
+
+          <a href="blog.html">
+            <div
+              id="discover-section"
+              class="flex items-center gap-3 bg-gradient-to-r from-[#4B6FFF] to-[#8A9EFF] px-32 py-4 rounded-lg shadow-md cursor-pointer"
+            >
+              <img src="assests/board.png" alt="Board Icon" class="w-14" />
+              <span class="font-semibold text-lg text-white">
+                Discover Something <br />
+                New Today!
+              </span>
+            </div>
+          </a>
 
           <!-- Date Section -->
           <div
@@ -357,7 +371,7 @@
             if (!button.disabled) {
               TaskCount++;
 
-              alert("New Update on activity log!");
+              alert("Board update Successfully");
               if (TaskCount === 6) {
                 alert(`Board updated successfully for: ${taskNames[index]}`);
               }
