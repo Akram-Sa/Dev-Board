@@ -14,7 +14,7 @@
       <div class="flex items-center gap-2">
         <img src="assests/logo.png" alt="DevBoard Logo" class="w-10 h-10" />
         <h1 class="text-2xl">
-          <span class="text-black font-bold">Board</span>
+            <span class="text-gray-700">Dev</span><span class="font-bold text-gray-900">Board</span>
         </h1>
       </div>
 
@@ -357,10 +357,9 @@
             if (!button.disabled) {
               TaskCount++;
 
-              alert(`Board updated successfully for: ${taskNames[index]}`);
-
+              alert("New Update on activity log!");
               if (TaskCount === 6) {
-                alert("New Update on activity log!");
+                alert(`Board updated successfully for: ${taskNames[index]}`);
               }
 
               completeTask(button, index);
