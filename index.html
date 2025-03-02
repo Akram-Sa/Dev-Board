@@ -298,18 +298,10 @@
       const themeButton = document.getElementById("theme-button");
 
       const colors = ["#BFDBFE", "#FDE68A", "#A7F3D0", "#FBCFE8", "#8E44AD"];
-      let colorPart = 0;
-      const originalColor = "bg-blue-50";
 
       themeButton.addEventListener("click", () => {
-        if (colorPart < colors.length) {
-          body.style.backgroundColor = colors[colorPart++];
-          body.classList.remove(originalColor);
-        } else {
-          body.style.backgroundColor = ""; //inline color reset hobe
-          body.classList.add(originalColor); //main ta abr add hobe
-          colorPart = 0; // again restart
-        }
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        body.style.backgroundColor = colors[randomIndex];
       });
 
       function setCurrentDate() {
@@ -335,82 +327,92 @@
       //   activity message section
 
       document.addEventListener("DOMContentLoaded", function () {
-  const completedButtons = document.querySelectorAll(".completed-btn");
-  const taskAssignedCount = document.getElementById("task-assigned-count");
-  const navbarCount = document.getElementById("navbar-task-count");
-  const activityLog = document.getElementById("activity-log");
-  const clearHistoryBtn = document.getElementById("clear-history");
-  const noActivityMsg = document.getElementById("empty-log");
+        const completedButtons = document.querySelectorAll(".completed-btn");
+        const taskAssignedCount = document.getElementById(
+          "task-assigned-count"
+        );
+        const navbarCount = document.getElementById("navbar-task-count");
+        const activityLog = document.getElementById("activity-log");
+        const clearHistoryBtn = document.getElementById("clear-history");
+        const noActivityMsg = document.getElementById("empty-log");
 
-  const taskNames = [
-    "Fix Mobile Button Issue",
-    "Add Dark Mode",
-    "Optimize Home Page",
-    "Improve UI Components",
-    "Integrate OpenAI API",
-    "Improve Job Searching",
-  ];
+        const taskNames = [
+          "Fix Mobile Button Issue",
+          "Add Dark Mode",
+          "Optimize Home Page",
+          "Improve UI Components",
+          "Integrate OpenAI API",
+          "Improve Job Searching",
+        ];
 
-  function updateActivityMessage() {
-    noActivityMsg.style.display = activityLog.children.length === 0 ? "block" : "none";
-  }
+        let TaskCount = 0;
 
-  completedButtons.forEach(function (button, index) {
-    button.addEventListener("click", function () {
-      if (!button.disabled) {
-        alert(`Board updated successfully for: ${taskNames[index]}`);
-
-        if (index === 5) {
-          setTimeout(function () {
-            alert("New Update on activity log!");
-            completeTask(button, index);
-          }, 100);
-        } else {
-          completeTask(button, index);
+        function updateActivityMessage() {
+          noActivityMsg.style.display =
+            activityLog.children.length === 0 ? "block" : "none";
         }
-      }
-    });
-  });
 
-  function completeTask(button, index) {
-    button.disabled = true;
-    button.classList.remove("bg-blue-600", "hover:bg-blue-700");
-    button.classList.add("bg-gray-400", "cursor-not-allowed");
-    button.textContent = "Completed";
+        completedButtons.forEach(function (button, index) {
+          button.addEventListener("click", function () {
+            if (!button.disabled) {
+              TaskCount++;
 
-    // Task Count
-    let taskCount = parseInt(taskAssignedCount.textContent);
-    if (taskCount > 0) {
-      taskAssignedCount.textContent = taskCount - 1;
-    }
+              alert(`Board updated successfully for: ${taskNames[index]}`);
 
-    // Navbar Count
-    let navbarTaskCount = parseInt(navbarCount.textContent);
-    navbarCount.textContent = navbarTaskCount + 1;
+              if (TaskCount === 6) {
+                alert("New Update on activity log!");
+              }
 
-    
-    const now = new Date();
-    const timeOnly = now.toLocaleTimeString();
+              completeTask(button, index);
+            }
+          });
+        });
 
-    // Add Activity Log Entry
-    const logEntry = document.createElement("p");
-    logEntry.textContent = `You have completed the task ${taskNames[index]} at ${timeOnly}`;
-    logEntry.classList.add("text-gray-700", "text-sm", "mt-2", "border-b", "border-dashed", "pb-1");
+        function completeTask(button, index) {
+          button.disabled = true;
+          button.classList.remove("bg-blue-600", "hover:bg-blue-700");
+          button.classList.add("bg-gray-400", "cursor-not-allowed");
+          button.textContent = "Completed";
 
-    activityLog.appendChild(logEntry);
+          // Task Count
+          let taskCount = parseInt(taskAssignedCount.textContent);
+          if (taskCount > 0) {
+            taskAssignedCount.textContent = taskCount - 1;
+          }
 
-    updateActivityMessage();
-  }
+          // Navbar Count
+          let navbarTaskCount = parseInt(navbarCount.textContent);
+          navbarCount.textContent = navbarTaskCount + 1;
 
-  // Clear History Button
-  clearHistoryBtn.addEventListener("click", () => {
-    activityLog.innerHTML = "";
-    updateActivityMessage();
-  });
+          const now = new Date();
+          const timeOnly = now.toLocaleTimeString();
 
-  updateActivityMessage();
-});
+          // Add Activity Log Entry
+          const logEntry = document.createElement("p");
+          logEntry.textContent = `You have completed the task ${taskNames[index]} at ${timeOnly}`;
+          logEntry.classList.add(
+            "text-gray-700",
+            "text-sm",
+            "mt-2",
+            "border-b",
+            "border-dashed",
+            "pb-1"
+          );
 
+          activityLog.appendChild(logEntry);
+
+          updateActivityMessage();
+        }
+
+        // Clear History Button
+        clearHistoryBtn.addEventListener("click", () => {
+          activityLog.innerHTML = "";
+          completedTaskCount = 0; // Reset count when clearing history
+          updateActivityMessage();
+        });
+
+        updateActivityMessage();
+      });
     </script>
   </body>
 </html>
